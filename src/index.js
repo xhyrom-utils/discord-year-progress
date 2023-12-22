@@ -24,7 +24,11 @@ client.on("ready", () => {
     timezone: "Europe/London",
   });
 
-  client.moonlink.init(client.user?.id);
+  client.moonlink.init("1058688397792772176");
+});
+
+client.on("raw", (data) => {
+  client.moonlink.packetUpdate(data);
 });
 
 client.moonlink.on("nodeCreate", async (node) => {

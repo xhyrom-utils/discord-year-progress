@@ -20,10 +20,10 @@ export class Player {
       autoPlay: true,
       volume: 100,
     });
-    player.setLoop(2); // 0 - off, 1 - track, 2 - queue
+    //player.setLoop(2); // 0 - off, 1 - track, 2 - queue
 
     player.connect({
-      setDeaf: false,
+      setDeaf: true,
       setMute: false,
     });
   }
@@ -34,15 +34,12 @@ export class Player {
 
     console.log("Loading tracks...");
 
-    const res = await this.client.moonlink.search({
-      source: "spotify",
-      query:
-        "https://open.spotify.com/playlist/1DEdfWS9GNrsXnPTZCa1hP?si=91cd61772a264cc6",
-    });
-
-    console.log(res);
+    const res = await this.client.moonlink.search(
+      "https://www.youtube.com/watch?v=_YDIeqwnhlc"
+    );
 
     for (const track of res.tracks) {
+      console.log(track);
       player.queue.add(track);
     }
 
@@ -59,7 +56,7 @@ export class Player {
         });
       }
 
-      await player.play();
+      player.play();
 
       console.log("Playing tracks...");
     }
