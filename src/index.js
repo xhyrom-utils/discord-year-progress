@@ -1,12 +1,13 @@
 import "dotenv/config";
-import { Client } from "discord.js";
 import { IntentsBitField } from "discord.js";
 import moment from "moment-timezone";
 import cron from "node-cron";
+import { setTimeout as sleep } from "node:timers/promises";
+import { Yearos } from "./Yearos.js";
 
 const CHANNEL_ID = "1162052161987940453";
 
-const client = new Client({
+const client = new Yearos({
   intents: [IntentsBitField.Flags.Guilds],
 });
 
@@ -16,6 +17,17 @@ client.on("ready", () => {
   cron.schedule("0 0 * * *", calculate, {
     timezone: "Europe/London",
   });
+
+  client.moonlink.init(client.user?.id);
+});
+
+client.moonlink.on("nodeCreate", async (node) => {
+  console.log(`MoonLink | Node ${node.host} was connected.`);
+
+  await sleep(1000);
+
+  client.musicPlayer.init();
+  client.musicPlayer.loadTracks();
 });
 
 const calculate = () => {

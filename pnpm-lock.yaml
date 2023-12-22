@@ -17,6 +17,9 @@ dependencies:
   moment-timezone:
     specifier: ^0.5.43
     version: 0.5.43
+  moonlink.js:
+    specifier: 2.16.60
+    version: 2.16.60
   node-cron:
     specifier: ^3.0.2
     version: 3.0.2
@@ -186,6 +189,12 @@ packages:
 
   /moment@2.29.4:
     resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
+    dev: false
+
+  /moonlink.js@2.16.60:
+    resolution: {integrity: sha512-Hf0PkZ2J7SiQX3xqVjn0NpQHbvD/g4e6M0RcJDLLRZlxUQml9GNWahNYVdvO5bXl3VT4Cd8Bgq0w30SrVP7w1g==}
+    engines: {node: '>=18.8.0'}
+    deprecated: Potential vulnerability. Please upgrade to @latest
     dev: false
 
   /node-cron@3.0.2:
