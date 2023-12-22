@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { IntentsBitField } from "discord.js";
+import { GatewayIntentBits } from "discord.js";
 import moment from "moment-timezone";
 import cron from "node-cron";
 import { setTimeout as sleep } from "node:timers/promises";
@@ -8,7 +8,13 @@ import { Yearos } from "./Yearos.js";
 const CHANNEL_ID = "1162052161987940453";
 
 const client = new Yearos({
-  intents: [IntentsBitField.Flags.Guilds],
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildPresences,
+  ],
 });
 
 client.on("ready", () => {
