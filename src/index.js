@@ -1,4 +1,3 @@
-import "dotenv/config";
 import { Client } from "discord.js";
 import { IntentsBitField } from "discord.js";
 import moment from "moment-timezone";
@@ -35,7 +34,7 @@ const calculate = () => {
       [
         `The year is now **${percentage}%** complete.`,
         `We've had **${elapsedDays}** days so far, with **${remainingDays}** days left.`,
-      ].join("\n")
+      ].join("\n"),
     );
 };
 
